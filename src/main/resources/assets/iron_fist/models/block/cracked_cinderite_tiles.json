@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "iron_fist:block/cracked_cinderite_tiles"
+  }
+}
