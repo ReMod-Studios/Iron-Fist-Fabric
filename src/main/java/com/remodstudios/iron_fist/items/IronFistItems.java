@@ -1,12 +1,17 @@
 package com.remodstudios.iron_fist.items;
 
 import com.remodstudios.iron_fist.IronFistMain;
+import com.remodstudios.yarnandneedles.datagen.ResourceGenerators;
 import com.remodstudios.yarnandneedles.items.ItemRegistry;
+import com.remodstudios.yarnandneedles.items.ModAxeItem;
+import com.remodstudios.yarnandneedles.items.ModHoeItem;
+import com.remodstudios.yarnandneedles.items.ModPickaxeItem;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Blocks;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.fluid.LavaFluid;
+import net.minecraft.item.*;
 
 @SuppressWarnings("unused")
 public class IronFistItems extends ItemRegistry {
@@ -25,6 +30,65 @@ public class IronFistItems extends ItemRegistry {
     //region Item declarations
     private final FabricItemSettings BASE_SETTINGS = new FabricItemSettings().group(GROUP).maxCount(64);
     private final FabricItemSettings TOOL_SETTINGS = new FabricItemSettings().group(GROUP).maxCount(1);
+
+    public final Item ARKSTONE_CRYSTAL = add("arkstone_crystal");
+    public final Item ARKSTONE_INGOT = add("arkstone_ingot");
+
+    public final Item BUCKET_OF_FERROFLUID = add("bucket_of_ferrofluid", new Item(TOOL_SETTINGS));
+    public final Item BUCKET_OF_TEARS = add("bucket_of_tears", new Item(TOOL_SETTINGS));
+
+    public final Item ERODITE = add("erodite");    
+    public final Item FAIRY_LIGHTS = add("fairy_lights");
+
+    public final Item MAGNETITE = add("magnetite");
+    public final Item MAGNETITE_SWORD       =
+            add("magnetite_sword", ResourceGenerators.HANDHELD_ITEM,
+                    new SwordItem(IronFistToolMaterials.MAGNETITE, 3, -2.4F, TOOL_SETTINGS)
+            );
+    public final Item MAGNETITE_SHOVEL 		=
+            add("magnetite_shovel", ResourceGenerators.HANDHELD_ITEM,
+                    new ShovelItem(IronFistToolMaterials.MAGNETITE, 1.5f, -3f, TOOL_SETTINGS)
+            );
+    public final Item MAGNETITE_PICKAXE 	=
+            add("magnetite_pickaxe", ResourceGenerators.HANDHELD_ITEM,
+                    new ModPickaxeItem(IronFistToolMaterials.MAGNETITE, 1, -2.8f, TOOL_SETTINGS)
+            );
+    public final Item MAGNETITE_AXE 		=
+            add("magnetite_axe", ResourceGenerators.HANDHELD_ITEM,
+                    new ModAxeItem(IronFistToolMaterials.MAGNETITE, 6.0F, -3.1F, TOOL_SETTINGS)
+            );
+    public final Item MAGNETITE_HOE 		=
+            add("magnetite_hoe", ResourceGenerators.HANDHELD_ITEM,
+                    new ModHoeItem(IronFistToolMaterials.MAGNETITE, -2, -1.0F, TOOL_SETTINGS)
+            );
+    public final Item MAGNETITE_HELMET 		=
+            add("magnetite_helmet",
+                    new ArmorItem(IronFistArmorMaterials.MAGNETITE, EquipmentSlot.HEAD, TOOL_SETTINGS)
+            );
+    public final Item MAGNETITE_CHESTPLATE 	=
+            add("magnetite_chestplate",
+                    new ArmorItem(IronFistArmorMaterials.MAGNETITE, EquipmentSlot.CHEST, TOOL_SETTINGS)
+            );
+    public final Item MAGNETITE_LEGGINGS 	=
+            add("magnetite_leggings",
+                    new ArmorItem(IronFistArmorMaterials.MAGNETITE, EquipmentSlot.LEGS, TOOL_SETTINGS)
+            );
+    public  final Item MAGNETITE_BOOTS 		=
+            add("magnetite_boots",
+                    new ArmorItem(IronFistArmorMaterials.MAGNETITE, EquipmentSlot.FEET, TOOL_SETTINGS)
+            );
+
+    public final Item SILVER_INGOT = add("silver_ingot");
+    public final Item SILVER_NUGGET = add("silver_nugget");
+
+    public final Item STARFRUIT             =
+            add("starfruit",
+                    new Item(new Item.Settings().food(new FoodComponent.Builder()
+                            .hunger(6)
+                            .saturationModifier(6F)
+                            .build()))
+            );
+    public final Item THORN = add("thorn");
 
     //endregion
 }
