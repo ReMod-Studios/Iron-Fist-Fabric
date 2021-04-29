@@ -30,12 +30,16 @@ dependencies {
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
 	/* TODO modmenu is causing a NCDFE rn, try later - leocth
 	modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}") {
-		exclude module: 'fabric-api'
+		exclude group: 'net.fabricmc.fabric-api'
 	}
 	 */
 
-	modApi "com.github.ReMod-Studios:yarn-and-needles:$ynn_version"
-	include "com.github.ReMod-Studios:yarn-and-needles:$ynn_version"
+	modApi("com.github.ReMod-Studios:yarn-and-needles:$ynn_version") {
+		exclude group: 'net.fabricmc.fabric-api'
+	}
+	include("com.github.ReMod-Studios:yarn-and-needles:$ynn_version") {
+		exclude group: 'net.fabricmc.fabric-api'
+	}
 }
 
 processResources {
