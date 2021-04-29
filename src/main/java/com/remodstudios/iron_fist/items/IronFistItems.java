@@ -29,6 +29,7 @@ public class IronFistItems extends ItemRegistry {
     }
 
     //region Item declarations
+
     private final FabricItemSettings BASE_SETTINGS = new FabricItemSettings().group(GROUP).maxCount(64);
     private final FabricItemSettings TOOL_SETTINGS = new FabricItemSettings().group(GROUP).maxCount(1);
 
