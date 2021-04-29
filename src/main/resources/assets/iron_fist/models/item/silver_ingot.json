@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "iron_fist:items/silver_ingot"
+    "layer0": "iron_fist:item/silver_ingot"
   }
 }

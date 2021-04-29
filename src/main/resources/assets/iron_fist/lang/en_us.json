@@ -20,5 +20,14 @@
   "item.iron_fist.silver_ingot": "Silver Ingot",
   "item.iron_fist.silver__nugget": "Silver Nugget",
   "item.iron_fist.starfruit": "Starfruit",
-  "item.iron_fist.thorn": "Thorn"
+  "item.iron_fist.thorn": "Thorn",
+
+  "block.iron_fist.arkstone_glass": "Arkstone Glass",
+  "block.iron_fist.arkstone_ore": "Arkstone Ore",
+  "block.iron_fist.barbed_bush": "Barbed Bush",
+  "block.iron_fist.barbed_bush_plant": "Barbed Bush Plant",
+  "block.iron_fist.block_of_erodite": "Block of Erodite",
+  "block.iron_fist.block_of_magnetite": "Block of Magnetite",
+  "block.iron_fist.block_of_silver": "Block of Silver",
+  "block.iron_fist.blossom_vines": "Blossom Vines"
 }

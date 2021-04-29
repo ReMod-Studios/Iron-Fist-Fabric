@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "iron_fist:items/starfruit"
+    "layer0": "iron_fist:item/starfruit"
   }
 }

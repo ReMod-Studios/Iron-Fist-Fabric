@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "iron_fist:items/fairy_lights"
+    "layer0": "iron_fist:item/fairy_lights"
   }
 }

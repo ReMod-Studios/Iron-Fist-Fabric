@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "iron_fist:items/magnetite_boots"
+    "layer0": "iron_fist:item/magnetite_boots"
   }
 }

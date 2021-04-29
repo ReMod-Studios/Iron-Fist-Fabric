@@ -1,6 +1,7 @@
 package com.remodstudios.iron_fist.items;
 
 import com.remodstudios.iron_fist.IronFistMain;
+import com.remodstudios.iron_fist.blocks.IronFistBlocks;
 import com.remodstudios.yarnandneedles.datagen.ResourceGenerators;
 import com.remodstudios.yarnandneedles.items.ItemRegistry;
 import com.remodstudios.yarnandneedles.items.ModAxeItem;
@@ -20,7 +21,7 @@ public class IronFistItems extends ItemRegistry {
     private final ItemGroup GROUP
             = FabricItemGroupBuilder.build(
             IronFistMain.id("group"),
-            () -> new ItemStack(Blocks.END_PORTAL_FRAME)
+            () -> new ItemStack(IronFistItems.INSTANCE.STARFRUIT)
     );
 
     public IronFistItems() {
@@ -86,9 +87,21 @@ public class IronFistItems extends ItemRegistry {
                     new Item(new Item.Settings().food(new FoodComponent.Builder()
                             .hunger(6)
                             .saturationModifier(6F)
-                            .build()))
+                            .build())
+                            .group(GROUP))
             );
     public final Item THORN = add("thorn");
+
+    // Block Items
+
+    public final BlockItem ARKSTONE_GLASS = addBlockItem("arkstone_glass", IronFistBlocks.INSTANCE.ARKSTONE_GLASS);
+    public final BlockItem ARKSTONE_ORE = addBlockItem("arkstone_ore", IronFistBlocks.INSTANCE.ARKSTONE_ORE);
+    public final BlockItem BARBED_BUSH = addBlockItem("barbed_bush", IronFistBlocks.INSTANCE.BARBED_BUSH);
+    public final BlockItem BARBED_BUSH_PLANT = addBlockItem("barbed_bush_plant", IronFistBlocks.INSTANCE.BARBED_BUSH_PLANT);
+    public final BlockItem BLOCK_OF_ERODITE = addBlockItem("block_of_erodite", IronFistBlocks.INSTANCE.BLOCK_OF_ERODITE);
+    public final BlockItem BLOCK_OF_MAGNETITE = addBlockItem("block_of_erodite", IronFistBlocks.INSTANCE.BLOCK_OF_MAGNETITE);
+    public final BlockItem BLOCK_OF_SILVER = addBlockItem("block_of_erodite", IronFistBlocks.INSTANCE.BLOCK_OF_SILVER);
+    public final BlockItem BLOSSOM_VINES = addBlockItem("blossom_vines", IronFistBlocks.INSTANCE.BLOSSOM_VINES);
 
     //endregion
 }
