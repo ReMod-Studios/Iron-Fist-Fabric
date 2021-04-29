@@ -13,6 +13,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 CLAUSES:
--   The "assets" ("resources" under "/src/resources") are however, not
-    affected by this license, therefore, not licensed and default to
-    "All Rights Reserved".
+-   The "assets" ("resources" under "/src/resources") are however, 
+	not affected by this license, therefore, not licensed and 
+	default to "All Rights Reserved".
