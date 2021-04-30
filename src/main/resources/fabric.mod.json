@@ -16,7 +16,9 @@
     "main": [
       "com.remodstudios.iron_fist.IronFistMain"
     ],
-    "client": [],
+    "client": [
+      "com.remodstudios.iron_fist.client.IronFistClientMain"
+    ],
     "server": []
   },
   "mixins": [
