@@ -3,7 +3,8 @@
   "package": "com.remodstudios.iron_fist.mixins",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "CryingObsidianInteractionMixin"
+    "CryingObsidianInteractionMixin",
+    "PlayerArmorCheckMixin"
   ],
   "client": [],
   "server": [],

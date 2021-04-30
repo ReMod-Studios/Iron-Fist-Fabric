@@ -4,11 +4,16 @@ import com.remodstudios.iron_fist.blocks.IronFistBlocks;
 import com.remodstudios.iron_fist.items.IronFistItems;
 import com.swordglowsblue.artifice.api.Artifice;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.stat.Stat;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Locale;
+
+@SuppressWarnings("unused")
 public class IronFistMain implements ModInitializer {
     public static final String MOD_ID = "iron_fist";
     public static final String MOD_NAME = "Iron Fist";
@@ -28,6 +33,8 @@ public class IronFistMain implements ModInitializer {
             IronFistItems.INSTANCE.generateData(pack);
             IronFistBlocks.INSTANCE.generateData(pack);
         });
+
+        // Player Stat
     }
 
     public static void log(Level level, String message){
