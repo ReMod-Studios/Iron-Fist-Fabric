@@ -28,8 +28,6 @@ public class IronFistItems extends ItemRegistry {
         super(IronFistMain.MOD_ID);
     }
 
-    //region Item declarations
-
     private final FabricItemSettings BASE_SETTINGS = new FabricItemSettings().group(GROUP).maxCount(64);
     private final FabricItemSettings TOOL_SETTINGS = new FabricItemSettings().group(GROUP).maxCount(1);
 
@@ -100,8 +98,8 @@ public class IronFistItems extends ItemRegistry {
     public final BlockItem BARBED_BUSH = addBlockItem("barbed_bush", IronFistBlocks.INSTANCE.BARBED_BUSH);
     public final BlockItem BARBED_BUSH_PLANT = addBlockItem("barbed_bush_plant", IronFistBlocks.INSTANCE.BARBED_BUSH_PLANT);
     public final BlockItem BLOCK_OF_ERODITE = addBlockItem("block_of_erodite", IronFistBlocks.INSTANCE.BLOCK_OF_ERODITE);
-    public final BlockItem BLOCK_OF_MAGNETITE = addBlockItem("block_of_erodite", IronFistBlocks.INSTANCE.BLOCK_OF_MAGNETITE);
-    public final BlockItem BLOCK_OF_SILVER = addBlockItem("block_of_erodite", IronFistBlocks.INSTANCE.BLOCK_OF_SILVER);
+    public final BlockItem BLOCK_OF_MAGNETITE = addBlockItem("block_of_magnetite", IronFistBlocks.INSTANCE.BLOCK_OF_MAGNETITE);
+    public final BlockItem BLOCK_OF_SILVER = addBlockItem("block_of_silver", IronFistBlocks.INSTANCE.BLOCK_OF_SILVER);
     public final BlockItem BLOSSOM_VINES = addBlockItem("blossom_vines", IronFistBlocks.INSTANCE.BLOSSOM_VINES);
 
     //endregion

@@ -2,19 +2,18 @@ package com.remodstudios.iron_fist;
 
 import com.remodstudios.iron_fist.blocks.IronFistBlocks;
 import com.remodstudios.iron_fist.items.IronFistItems;
+import com.swordglowsblue.artifice.api.Artifice;
 import net.fabricmc.api.ModInitializer;
-
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class IronFistMain implements ModInitializer {
-
-    public static Logger LOGGER = LogManager.getLogger();
-
     public static final String MOD_ID = "iron_fist";
     public static final String MOD_NAME = "Iron Fist";
+
+    public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 
     @Override
     public void onInitialize() {
@@ -22,6 +21,10 @@ public class IronFistMain implements ModInitializer {
         //TODO: Initializer
         IronFistItems.INSTANCE.init();
         IronFistBlocks.INSTANCE.init();
+        Artifice.registerDataPack(new Identifier(MOD_ID, "generated_data"), pack -> {
+            IronFistItems.INSTANCE.generateData(pack);
+            IronFistBlocks.INSTANCE.generateData(pack);
+        });
     }
 
     public static void log(Level level, String message){
