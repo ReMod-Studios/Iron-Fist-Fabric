@@ -93,7 +93,7 @@ public class IronFistItems extends ItemRegistry {
             );
     public final Item THORN = add("thorn");
 
-    // Block Items
+    //region Block Items
 
     public final BlockItem ARKSTONE_GLASS = addBlockItem("arkstone_glass", IronFistBlocks.INSTANCE.ARKSTONE_GLASS);
     public final BlockItem ARKSTONE_ORE = addBlockItem("arkstone_ore", IronFistBlocks.INSTANCE.ARKSTONE_ORE);
