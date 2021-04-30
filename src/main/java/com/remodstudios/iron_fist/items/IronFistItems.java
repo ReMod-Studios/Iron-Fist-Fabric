@@ -9,9 +9,7 @@ import com.remodstudios.yarnandneedles.items.ModHoeItem;
 import com.remodstudios.yarnandneedles.items.ModPickaxeItem;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.fluid.LavaFluid;
 import net.minecraft.item.*;
 
 @SuppressWarnings("unused")
@@ -27,6 +25,8 @@ public class IronFistItems extends ItemRegistry {
     public IronFistItems() {
         super(IronFistMain.MOD_ID);
     }
+
+    //region Item Declarations
 
     private final FabricItemSettings BASE_SETTINGS = new FabricItemSettings().group(GROUP).maxCount(64);
     private final FabricItemSettings TOOL_SETTINGS = new FabricItemSettings().group(GROUP).maxCount(1);
@@ -91,7 +91,9 @@ public class IronFistItems extends ItemRegistry {
             );
     public final Item THORN = add("thorn");
 
-    //region Block Items
+    //endregion
+
+    //region Block Item Declarations
 
     public final BlockItem ARKSTONE_GLASS = addBlockItem("arkstone_glass", IronFistBlocks.INSTANCE.ARKSTONE_GLASS);
     public final BlockItem ARKSTONE_ORE = addBlockItem("arkstone_ore", IronFistBlocks.INSTANCE.ARKSTONE_ORE);
