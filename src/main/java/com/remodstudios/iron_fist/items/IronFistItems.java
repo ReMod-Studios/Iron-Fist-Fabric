@@ -2,11 +2,9 @@ package com.remodstudios.iron_fist.items;
 
 import com.remodstudios.iron_fist.IronFistMain;
 import com.remodstudios.iron_fist.blocks.IronFistBlocks;
+import com.remodstudios.yarnandneedles.blocks.BlockRegistry;
 import com.remodstudios.yarnandneedles.datagen.ResourceGenerators;
 import com.remodstudios.yarnandneedles.items.ItemRegistry;
-import com.remodstudios.yarnandneedles.items.ModAxeItem;
-import com.remodstudios.yarnandneedles.items.ModHoeItem;
-import com.remodstudios.yarnandneedles.items.ModPickaxeItem;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
@@ -14,10 +12,8 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
-import net.minecraft.util.registry.Registry;
 
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 @SuppressWarnings("unused")
 public class IronFistItems extends ItemRegistry {
@@ -38,14 +34,14 @@ public class IronFistItems extends ItemRegistry {
     private final FabricItemSettings BASE_SETTINGS = new FabricItemSettings().group(GROUP);
     private final FabricItemSettings UNSTACKABLE_SETTINGS = new FabricItemSettings().group(GROUP).maxCount(1);
 
-    public final Item ARKSTONE_CRYSTAL = add("arkstone_crystal", new Item(BASE_SETTINGS));
-    public final Item ARKSTONE_INGOT = add("arkstone_ingot", new Item(BASE_SETTINGS));
+    public final Item ARKSTONE_CRYSTAL = add("arkstone_crystal");
+    public final Item ARKSTONE_INGOT = add("arkstone_ingot");
 
     public final Item BUCKET_OF_FERROFLUID = add("bucket_of_ferrofluid", new Item(UNSTACKABLE_SETTINGS));
     public final Item BUCKET_OF_TEARS = add("bucket_of_tears", new Item(UNSTACKABLE_SETTINGS));
 
-    public final Item ERODITE = add("erodite", new Item(BASE_SETTINGS));
-    public final Item FAIRY_LIGHTS = add("fairy_lights", new Item(BASE_SETTINGS));
+    public final Item ERODITE = add("erodite");
+    public final Item FAIRY_LIGHTS = add("fairy_lights");
 
     public final Item MAGNETITE = add("magnetite");
     public final Item MAGNETITE_SWORD       =
@@ -100,20 +96,16 @@ public class IronFistItems extends ItemRegistry {
 
     //endregion
 
-    //region Block Item Declarations
-
-//    public final BlockItem ARKSTONE_GLASS = addBlockItem("arkstone_glass", IronFistBlocks.INSTANCE.ARKSTONE_GLASS);
-//    public final BlockItem ARKSTONE_ORE = addBlockItem("arkstone_ore", IronFistBlocks.INSTANCE.ARKSTONE_ORE);
-//    public final BlockItem BARBED_BUSH = addBlockItem("barbed_bush", IronFistBlocks.INSTANCE.BARBED_BUSH);
-//    public final BlockItem BARBED_BUSH_PLANT = addBlockItem("barbed_bush_plant", IronFistBlocks.INSTANCE.BARBED_BUSH_PLANT);
-//    public final BlockItem BLOCK_OF_ERODITE = addBlockItem("block_of_erodite", IronFistBlocks.INSTANCE.BLOCK_OF_ERODITE);
-//    public final BlockItem BLOCK_OF_MAGNETITE = addBlockItem("block_of_magnetite", IronFistBlocks.INSTANCE.BLOCK_OF_MAGNETITE);
-//    public final BlockItem BLOCK_OF_SILVER = addBlockItem("block_of_silver", IronFistBlocks.INSTANCE.BLOCK_OF_SILVER);
-//    public final BlockItem BLOSSOM_VINES = addBlockItem("blossom_vines", IronFistBlocks.INSTANCE.BLOSSOM_VINES);
-
-    for (public Pair<Identifier, Block> pair: IronFistBlocks) {
-        Registry.register(Registry.ITEM, pair.getLeft(), new BlockItem(pair.getRight(), BASE_SETTINGS));
+    @Override
+    public void init() {
+        // add block items *before* init (since init registers)
+        for (Map.Entry<Identifier, Pair<Block, BlockRegistry.RegistrySettings>> entry : IronFistBlocks.INSTANCE.BLOCKS.entrySet())
+            addBlockItem(entry.getKey().getPath(), entry.getValue().getLeft());
+        super.init();
     }
 
-    //endregion
+    @Override
+    protected FabricItemSettings getDefaultSettings() {
+        return BASE_SETTINGS;
+    }
 }
