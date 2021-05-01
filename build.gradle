@@ -44,8 +44,10 @@ dependencies {
 	}
 	
 	// Portal Thing
+	/* FIXME causes Mixin to freak out - ADCLeo
 	modImplementation 'net.kyrptonaught:customportalapi:0.0.1-beta18-1.16'
 	include 'net.kyrptonaught:customportalapi:0.0.1-beta18-1.16'
+	 */
 }
 
 processResources {
