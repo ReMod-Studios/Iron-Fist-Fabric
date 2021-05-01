@@ -9,8 +9,15 @@ import com.remodstudios.yarnandneedles.items.ModHoeItem;
 import com.remodstudios.yarnandneedles.items.ModPickaxeItem;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.block.Block;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.*;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.Pair;
+import net.minecraft.util.registry.Registry;
+
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @SuppressWarnings("unused")
 public class IronFistItems extends ItemRegistry {
@@ -95,14 +102,18 @@ public class IronFistItems extends ItemRegistry {
 
     //region Block Item Declarations
 
-    public final BlockItem ARKSTONE_GLASS = addBlockItem("arkstone_glass", IronFistBlocks.INSTANCE.ARKSTONE_GLASS);
-    public final BlockItem ARKSTONE_ORE = addBlockItem("arkstone_ore", IronFistBlocks.INSTANCE.ARKSTONE_ORE);
-    public final BlockItem BARBED_BUSH = addBlockItem("barbed_bush", IronFistBlocks.INSTANCE.BARBED_BUSH);
-    public final BlockItem BARBED_BUSH_PLANT = addBlockItem("barbed_bush_plant", IronFistBlocks.INSTANCE.BARBED_BUSH_PLANT);
-    public final BlockItem BLOCK_OF_ERODITE = addBlockItem("block_of_erodite", IronFistBlocks.INSTANCE.BLOCK_OF_ERODITE);
-    public final BlockItem BLOCK_OF_MAGNETITE = addBlockItem("block_of_magnetite", IronFistBlocks.INSTANCE.BLOCK_OF_MAGNETITE);
-    public final BlockItem BLOCK_OF_SILVER = addBlockItem("block_of_silver", IronFistBlocks.INSTANCE.BLOCK_OF_SILVER);
-    public final BlockItem BLOSSOM_VINES = addBlockItem("blossom_vines", IronFistBlocks.INSTANCE.BLOSSOM_VINES);
+//    public final BlockItem ARKSTONE_GLASS = addBlockItem("arkstone_glass", IronFistBlocks.INSTANCE.ARKSTONE_GLASS);
+//    public final BlockItem ARKSTONE_ORE = addBlockItem("arkstone_ore", IronFistBlocks.INSTANCE.ARKSTONE_ORE);
+//    public final BlockItem BARBED_BUSH = addBlockItem("barbed_bush", IronFistBlocks.INSTANCE.BARBED_BUSH);
+//    public final BlockItem BARBED_BUSH_PLANT = addBlockItem("barbed_bush_plant", IronFistBlocks.INSTANCE.BARBED_BUSH_PLANT);
+//    public final BlockItem BLOCK_OF_ERODITE = addBlockItem("block_of_erodite", IronFistBlocks.INSTANCE.BLOCK_OF_ERODITE);
+//    public final BlockItem BLOCK_OF_MAGNETITE = addBlockItem("block_of_magnetite", IronFistBlocks.INSTANCE.BLOCK_OF_MAGNETITE);
+//    public final BlockItem BLOCK_OF_SILVER = addBlockItem("block_of_silver", IronFistBlocks.INSTANCE.BLOCK_OF_SILVER);
+//    public final BlockItem BLOSSOM_VINES = addBlockItem("blossom_vines", IronFistBlocks.INSTANCE.BLOSSOM_VINES);
+
+    for (public Pair<Identifier, Block> pair: IronFistBlocks) {
+        Registry.register(Registry.ITEM, pair.getLeft(), new BlockItem(pair.getRight(), BASE_SETTINGS));
+    }
 
     //endregion
 }

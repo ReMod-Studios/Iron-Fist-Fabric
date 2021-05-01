@@ -42,6 +42,13 @@ public class IronFistBlocks extends BlockRegistry {
     public final Block BLOSSOM_VINES = add("blossom_vines",
             new VineBlock(FabricBlockSettings.copyOf(Blocks.VINE))
     );
+    public final Block CHISELED_CINDERITE_BRICKS = add("chiseled_cinderite_bricks",
+            new Block(newStoneLike())
+    );
+    public final Block CINDERITE = add("cinderite",
+            new Block(newStoneLike())
+    );
+
 
 
     //endregion
@@ -50,6 +57,16 @@ public class IronFistBlocks extends BlockRegistry {
         return (FabricBlockSettings
                 .of(Material.STONE)
                 .sounds(BlockSoundGroup.AMETHYST_BLOCK)
+                .breakByTool(FabricToolTags.PICKAXES)
+                .requiresTool()
+                .strength(0.5F)
+        );
+    }
+
+    private static final FabricBlockSettings newStoneLike() {
+        return (FabricBlockSettings
+                .of(Material.STONE)
+                .sounds(BlockSoundGroup.STONE)
                 .breakByTool(FabricToolTags.PICKAXES)
                 .requiresTool()
                 .strength(2.5F)
