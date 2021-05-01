@@ -37,29 +37,29 @@ public class IronFistItems extends ItemRegistry {
     public final Item BUCKET_OF_FERROFLUID = add("bucket_of_ferrofluid", new Item(UNSTACKABLE_SETTINGS));
     public final Item BUCKET_OF_TEARS = add("bucket_of_tears", new Item(UNSTACKABLE_SETTINGS));
 
-    public final Item ERODITE = add("erodite", new Item(BASE_SETTINGS));
-    public final Item FAIRY_LIGHTS = add("fairy_lights", new Item(BASE_SETTINGS));
+    public final Item ERODITE = add("erodite");    
+    public final Item FAIRY_LIGHTS = add("fairy_lights");
 
     public final Item MAGNETITE = add("magnetite");
     public final Item MAGNETITE_SWORD       =
             add("magnetite_sword", ResourceGenerators.HANDHELD_ITEM,
-                    new MagnetiteSwordItem(IronFistToolMaterials.MAGNETITE, 3, -2.4F, UNSTACKABLE_SETTINGS)
+                    new SwordItem(IronFistToolMaterials.MAGNETITE, 3, -2.4F, UNSTACKABLE_SETTINGS)
             );
     public final Item MAGNETITE_SHOVEL 		=
             add("magnetite_shovel", ResourceGenerators.HANDHELD_ITEM,
-                    new MagnetiteShovelItem(IronFistToolMaterials.MAGNETITE, 1.5f, -3f, UNSTACKABLE_SETTINGS)
+                    new ShovelItem(IronFistToolMaterials.MAGNETITE, 1.5f, -3f, UNSTACKABLE_SETTINGS)
             );
     public final Item MAGNETITE_PICKAXE 	=
             add("magnetite_pickaxe", ResourceGenerators.HANDHELD_ITEM,
-                    new MagnetitePickaxeItem(IronFistToolMaterials.MAGNETITE, 1, -2.8f, UNSTACKABLE_SETTINGS)
+                    new ModPickaxeItem(IronFistToolMaterials.MAGNETITE, 1, -2.8f, UNSTACKABLE_SETTINGS)
             );
     public final Item MAGNETITE_AXE 		=
             add("magnetite_axe", ResourceGenerators.HANDHELD_ITEM,
-                    new MagnetiteAxeItem(IronFistToolMaterials.MAGNETITE, 6.0F, -3.1F, UNSTACKABLE_SETTINGS)
+                    new ModAxeItem(IronFistToolMaterials.MAGNETITE, 6.0F, -3.1F, UNSTACKABLE_SETTINGS)
             );
     public final Item MAGNETITE_HOE 		=
             add("magnetite_hoe", ResourceGenerators.HANDHELD_ITEM,
-                    new MagnetiteHoeItem(IronFistToolMaterials.MAGNETITE, -2, -1.0F, UNSTACKABLE_SETTINGS)
+                    new ModHoeItem(IronFistToolMaterials.MAGNETITE, -2, -1.0F, UNSTACKABLE_SETTINGS)
             );
     public final Item MAGNETITE_HELMET 		=
             add("magnetite_helmet",

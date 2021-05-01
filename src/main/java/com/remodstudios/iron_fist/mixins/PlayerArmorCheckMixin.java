@@ -21,23 +21,6 @@ public abstract class PlayerArmorCheckMixin extends LivingEntity {
         super(entityType, world);
     }
 
-    ItemStack helmet = getEquippedStack(EquipmentSlot.HEAD);
-    ItemStack chestplate = getEquippedStack(EquipmentSlot.CHEST);
-    ItemStack leggings = getEquippedStack(EquipmentSlot.LEGS);
-    ItemStack boots = getEquippedStack(EquipmentSlot.FEET);
-    ItemStack mainhand = getEquippedStack(EquipmentSlot.MAINHAND);
-
-    public final boolean hasMagnetism =     (   helmet.getName().equals(IronFistItems.INSTANCE.MAGNETITE_HELMET) &&
-                                                chestplate.getName().equals(IronFistItems.INSTANCE.MAGNETITE_CHESTPLATE) &&
-                                                leggings.getName().equals(IronFistItems.INSTANCE.MAGNETITE_LEGGINGS) &&
-                                                boots.getName().equals(IronFistItems.INSTANCE.MAGNETITE_BOOTS)  ||
-                                            (       mainhand.getName().equals(IronFistItems.INSTANCE.MAGNETITE_SWORD) ||
-                                                    mainhand.getName().equals(IronFistItems.INSTANCE.MAGNETITE_AXE) ||
-                                                    mainhand.getName().equals(IronFistItems.INSTANCE.MAGNETITE_PICKAXE) ||
-                                                    mainhand.getName().equals(IronFistItems.INSTANCE.MAGNETITE_SHOVEL) ||
-                                                    mainhand.getName().equals(IronFistItems.INSTANCE.MAGNETITE_HOE))
-                                            );
-
     @Shadow public abstract ItemStack getEquippedStack(EquipmentSlot slot);
 
     @Shadow public abstract boolean giveItemStack(ItemStack stack);
@@ -46,6 +29,22 @@ public abstract class PlayerArmorCheckMixin extends LivingEntity {
 
     @Inject(at = @At("HEAD"), method = "tick")
     private void tick (CallbackInfo ci) {
+        ItemStack helmet = getEquippedStack(EquipmentSlot.HEAD);
+        ItemStack chestplate = getEquippedStack(EquipmentSlot.CHEST);
+        ItemStack leggings = getEquippedStack(EquipmentSlot.LEGS);
+        ItemStack boots = getEquippedStack(EquipmentSlot.FEET);
+        ItemStack mainhand = getEquippedStack(EquipmentSlot.MAINHAND);
+
+        final boolean hasMagnetism =     (   helmet.getName().equals(IronFistItems.INSTANCE.MAGNETITE_HELMET) &&
+                chestplate.getName().equals(IronFistItems.INSTANCE.MAGNETITE_CHESTPLATE) &&
+                leggings.getName().equals(IronFistItems.INSTANCE.MAGNETITE_LEGGINGS) &&
+                boots.getName().equals(IronFistItems.INSTANCE.MAGNETITE_BOOTS)  ||
+                (       mainhand.getName().equals(IronFistItems.INSTANCE.MAGNETITE_SWORD) ||
+                        mainhand.getName().equals(IronFistItems.INSTANCE.MAGNETITE_AXE) ||
+                        mainhand.getName().equals(IronFistItems.INSTANCE.MAGNETITE_PICKAXE) ||
+                        mainhand.getName().equals(IronFistItems.INSTANCE.MAGNETITE_SHOVEL) ||
+                        mainhand.getName().equals(IronFistItems.INSTANCE.MAGNETITE_HOE))
+        );
         if (hasMagnetism) {
 
         }
