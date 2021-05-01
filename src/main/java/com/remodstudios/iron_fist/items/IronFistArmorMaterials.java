@@ -16,7 +16,7 @@ public enum IronFistArmorMaterials implements ArmorMaterial {
             s -> 1, // TODO balance
             10,
             SoundEvents.ITEM_ARMOR_EQUIP_IRON,
-            "finallium",
+            "magnetite",
             0f, 0f,
             () -> Ingredient.ofItems(IronFistItems.INSTANCE.MAGNETITE) // todo use tags
     );
