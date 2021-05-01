@@ -99,8 +99,13 @@ public class IronFistItems extends ItemRegistry {
     @Override
     public void init() {
         // add block items *before* init (since init registers)
-        for (Map.Entry<Identifier, Pair<Block, BlockRegistry.RegistrySettings>> entry : IronFistBlocks.INSTANCE.BLOCKS.entrySet())
-            addBlockItem(entry.getKey().getPath(), entry.getValue().getLeft());
+        for (Map.Entry<Identifier, Pair<Block, BlockRegistry.RegistrySettings>> entry : IronFistBlocks.INSTANCE.BLOCKS.entrySet()) {
+            // FIXME temp hack to fix Blossom Vines item -ADCLeo
+            if (entry.getValue().getLeft() == IronFistBlocks.INSTANCE.BLOSSOM_VINES)
+                addBlockItem(entry.getKey().getPath(), FlatBlockItemResourceGenerator.INSTANCE, entry.getValue().getLeft());
+            else
+                addBlockItem(entry.getKey().getPath(), entry.getValue().getLeft());
+        }
         super.init();
     }
 
