@@ -31,9 +31,9 @@ public class Worldgen {
 //                )))
 //                .spreadHorizontally()
 //                .repeat(20);
-        RegistryKey<ConfiguredFeature<?, ?>> oreWoolOverworld = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
+        RegistryKey<ConfiguredFeature<?, ?>> snowflakeObsidianRule = RegistryKey.of(Registry.CONFIGURED_FEATURE_WORLDGEN,
                 new Identifier(IronFistMain.MOD_ID, "snowflake_obsidian_rule"));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, oreWoolOverworld.getValue(), Feature.ORE
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, snowflakeObsidianRule.getValue(), Feature.ORE
                 .configure(new OreFeatureConfig(
                         new BlockMatchRuleTest(Blocks.END_STONE), // base block is endstone in the end biomes
                         IronFistBlocks.INSTANCE.SNOWFLAKE_OBSIDIAN.getDefaultState(),
@@ -43,7 +43,7 @@ public class Worldgen {
                 )))
                 .spreadHorizontally()
                 .repeat(20));
-        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, oreWoolOverworld);
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.UNDERGROUND_ORES, snowflakeObsidianRule);
 
         // Portal
     }
