@@ -35,7 +35,7 @@ public class Worldgen {
                 new Identifier(IronFistMain.MOD_ID, "snowflake_obsidian_rule"));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, snowflakeObsidianRule.getValue(), Feature.ORE
                 .configure(new OreFeatureConfig(
-                        new BlockMatchRuleTest(Blocks.END_STONE), // base block is endstone in the end biomes
+                        new BlockMatchRuleTest(Blocks.OBSIDIAN), // base block is endstone in the end biomes
                         IronFistBlocks.INSTANCE.SNOWFLAKE_OBSIDIAN.getDefaultState(),
                         9))
                 .decorate(Decorator.RANGE.configure(new RangeDecoratorConfig(
