@@ -2,6 +2,7 @@ package com.remodstudios.iron_fist.items;
 
 import com.remodstudios.iron_fist.IronFistMain;
 import com.remodstudios.iron_fist.blocks.IronFistBlocks;
+import com.remodstudios.iron_fist.blocks.PlantBlockResourceGenerator;
 import com.remodstudios.yarnandneedles.blocks.BlockRegistry;
 import com.remodstudios.yarnandneedles.datagen.ResourceGenerators;
 import com.remodstudios.yarnandneedles.items.ItemRegistry;
@@ -100,8 +101,9 @@ public class IronFistItems extends ItemRegistry {
     public void init() {
         // add block items *before* init (since init registers)
         for (Map.Entry<Identifier, Pair<Block, BlockRegistry.RegistrySettings>> entry : IronFistBlocks.INSTANCE.BLOCKS.entrySet()) {
-            // FIXME temp hack to fix Blossom Vines item -ADCLeo
-            if (entry.getValue().getLeft() == IronFistBlocks.INSTANCE.BLOSSOM_VINES)
+            // FIXME temp hack to fix Blossom Vines item + plant items -ADCLeo
+            if (entry.getValue().getRight().resourceGenerator == PlantBlockResourceGenerator.INSTANCE
+                    || entry.getValue().getLeft() == IronFistBlocks.INSTANCE.BLOSSOM_VINES)
                 addBlockItem(entry.getKey().getPath(), FlatBlockItemResourceGenerator.INSTANCE, entry.getValue().getLeft());
             else
                 addBlockItem(entry.getKey().getPath(), entry.getValue().getLeft());

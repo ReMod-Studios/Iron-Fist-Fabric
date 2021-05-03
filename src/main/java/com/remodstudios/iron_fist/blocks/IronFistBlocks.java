@@ -3,7 +3,6 @@ package com.remodstudios.iron_fist.blocks;
 import com.remodstudios.iron_fist.IronFistMain;
 import com.remodstudios.yarnandneedles.blocks.BlockRegistry;
 import com.remodstudios.yarnandneedles.datagen.ResourceGenerators;
-import com.remodstudios.yarnandneedles.datagen.generators.block.LogBlockGenerator;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
@@ -11,7 +10,8 @@ import net.minecraft.client.render.RenderLayer;
 import net.minecraft.sound.BlockSoundGroup;
 
 import static com.remodstudios.yarnandneedles.datagen.ResourceGenerators.LOG_BLOCK;
-import static net.minecraft.block.Blocks.*;
+import static net.minecraft.block.Blocks.OAK_LEAVES;
+import static net.minecraft.block.Blocks.STONE;
 
 @SuppressWarnings("unused")
 public class IronFistBlocks extends BlockRegistry {
@@ -32,13 +32,12 @@ public class IronFistBlocks extends BlockRegistry {
     public final Block ARKSTONE_ORE = add("arkstone_ore",
             new Block(newCinderiteLike())
     );
-    // TODO create ResourceGenerator for bush-like blocks
     public final Block BARBED_BUSH = add("barbed_bush",
-            RegistrySettings.of(ResourceGenerators.SIMPLE_BLOCK, RenderLayer.getCutout()),
+            RegistrySettings.of(PlantBlockResourceGenerator.INSTANCE, RenderLayer.getCutout()),
             new FlowerLikeBushBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BUSH))
     );
     public final Block BARBED_BUSH_PLANT = add("barbed_bush_plant",
-            RegistrySettings.of(ResourceGenerators.SIMPLE_BLOCK, RenderLayer.getCutout()),
+            RegistrySettings.of(PlantBlockResourceGenerator.INSTANCE, RenderLayer.getCutout()),
             new FlowerLikeBushBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BUSH))
     );
     public final Block BLOCK_OF_ERODITE = add("block_of_erodite",
@@ -86,7 +85,7 @@ public class IronFistBlocks extends BlockRegistry {
             new Block(newCinderiteLike().sounds(BlockSoundGroup.AMETHYST_CLUSTER))
     );
     public final Block FERROWEED = add("ferroweed",
-            RegistrySettings.of(ResourceGenerators.SIMPLE_BLOCK, RenderLayer.getCutout()),
+            RegistrySettings.of(PlantBlockResourceGenerator.INSTANCE, RenderLayer.getCutout()),
             new FlowerLikeBushBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BUSH))
     );
 
@@ -104,6 +103,7 @@ public class IronFistBlocks extends BlockRegistry {
                             .sounds(BlockSoundGroup.WOOD))
     );
     public final Block IRONWOOD_LEAVES = add("ironwood_leaves",
+            RegistrySettings.of(ResourceGenerators.SIMPLE_BLOCK, RenderLayer.getCutout()),
             new LeavesBlock(FabricBlockSettings.copyOf(OAK_LEAVES))
     );
     public final Block FLOWERING_IRONWOOD_LEAVES = add("flowering_ironwood_leaves",
@@ -116,7 +116,7 @@ public class IronFistBlocks extends BlockRegistry {
             new Block(newCinderiteLike())
     );
     public final Block RINGROOT = add("ringroot",
-            RegistrySettings.of(ResourceGenerators.SIMPLE_BLOCK, RenderLayer.getCutout()),
+            RegistrySettings.of(PlantBlockResourceGenerator.INSTANCE, RenderLayer.getCutout()),
             new FlowerLikeBushBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BUSH))
     );
     public final Block RUSTY_CINDERITE_BRICKS = add("rusty_cinderite_bricks",
@@ -129,25 +129,25 @@ public class IronFistBlocks extends BlockRegistry {
             new Block(newSaguaroLike())
     );
     public final Block SAGUAROSTEEL_BUD = add("saguarosteel_bud",
-            RegistrySettings.of(ResourceGenerators.SIMPLE_BLOCK, RenderLayer.getCutout()),
+            RegistrySettings.of(PlantBlockResourceGenerator.INSTANCE, RenderLayer.getCutout()),
             new FlowerLikeBushBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BUSH).sounds(BlockSoundGroup.METAL))
     );
     public final Block SUGUAROSTEEL_GROWTH = add("saguarosteel_growth",
             new Block(newSaguaroLike())
     );
     public final Block SUGUAROSTEEL_THORNS = add("saguarosteel_thorns",
-            RegistrySettings.of(ResourceGenerators.SIMPLE_BLOCK, RenderLayer.getCutout()),
+            RegistrySettings.of(PlantBlockResourceGenerator.INSTANCE, RenderLayer.getCutout()),
             new FlowerLikeBushBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BUSH).sounds(BlockSoundGroup.METAL))
     );
     public final Block SILVER_BUD = add("silver_bud",
-            RegistrySettings.of(ResourceGenerators.SIMPLE_BLOCK, RenderLayer.getCutout()),
+            RegistrySettings.of(PlantBlockResourceGenerator.INSTANCE, RenderLayer.getCutout()),
             new FlowerLikeBushBlock(FabricBlockSettings.copyOf(Blocks.DEAD_BUSH).sounds(BlockSoundGroup.METAL))
     );
     public final Block SILVER_GROWTH = add("silver_growth",
-            new Block(FabricBlockSettings.copyOf(IRON_BLOCK))
+            new Block(FabricBlockSettings.copyOf(Blocks.IRON_BLOCK))
     );
     public final Block SNOWFLAKE_OBSIDIAN = add("snowflake_obsidian",
-            new Block(FabricBlockSettings.copyOf(OBSIDIAN))
+            new Block(FabricBlockSettings.copyOf(Blocks.OBSIDIAN))
     );
     public final Block STRIPPED_IRONWOOD_LOG = add("stripped_ironwood_log",
             new Block(FabricBlockSettings.copyOf(IRONWOOD_LOG))
