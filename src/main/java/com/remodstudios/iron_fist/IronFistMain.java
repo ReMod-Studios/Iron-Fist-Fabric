@@ -2,6 +2,7 @@ package com.remodstudios.iron_fist;
 
 import com.remodstudios.iron_fist.blocks.IronFistBlocks;
 import com.remodstudios.iron_fist.items.IronFistItems;
+import com.remodstudios.iron_fist.misc.Worldgen;
 import com.swordglowsblue.artifice.api.Artifice;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
@@ -29,8 +30,7 @@ public class IronFistMain implements ModInitializer {
             IronFistItems.INSTANCE.generateData(pack);
             IronFistBlocks.INSTANCE.generateData(pack);
         });
-
-        // Player Stat
+        Worldgen.init();
     }
 
     public static void log(Level level, String message){

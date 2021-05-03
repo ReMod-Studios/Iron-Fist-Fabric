@@ -26,8 +26,8 @@ public class CryingObsidianInteractionMixin extends Block {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (player.getStackInHand(hand).isOf(Items.BUCKET)) {
             player.setStackInHand(hand, new ItemStack(IronFistItems.INSTANCE.BUCKET_OF_TEARS));
-            player.playSound(SoundEvents.ITEM_BUCKET_FILL, 1.0F, 1.0F);
             world.setBlockState(pos, Blocks.OBSIDIAN.getDefaultState());
+            player.playSound(SoundEvents.ITEM_BUCKET_FILL, 1.0F, 1.0F);
             return ActionResult.success(world.isClient());
         }
         return ActionResult.PASS;
